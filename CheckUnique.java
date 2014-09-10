@@ -7,6 +7,7 @@
 public class CheckUnique {
   public static void main (String[] args){
     System.out.println(isUnique("hoege"));
+    System.out.println(isUniqueChars2("hoege"));
   }
 
   public static boolean isUnique (String s) {
@@ -25,6 +26,19 @@ public class CheckUnique {
       if (isUnique) break;
     }
     return isUnique;
+  }
+
+  public static boolean isUniqueChars2 (String s) {
+    if (s.length() > 256) return false;
+    boolean[] charSet = new boolean[256];
+    for (int i = 0; i < s.length(); i++) {
+      int val = s.charAt(i);
+      if (charSet[val]) {
+        return false;
+      }
+      charSet[val] = true;
+    }
+    return true;
   }
 }
 
