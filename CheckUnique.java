@@ -14,16 +14,16 @@ public class CheckUnique {
 
     // ASCIIと仮定した場合
     if (s.length() > 256) return false;
-    boolean isUnique = false;
+    boolean isUnique = true;
     for (int i = 0; i < s.length(); i++) {
       char current = s.charAt(i);
       for (int j = i + 1; j < s.length(); j++) {
         if (current == s.charAt(j)) {
-          isUnique = true;
+          isUnique = false;
           break;
         }
       }
-      if (isUnique) break;
+      if (!isUnique) break;
     }
     return isUnique;
   }
